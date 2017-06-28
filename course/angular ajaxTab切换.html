@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="lib/dist/css/bootstrap.min.css"/>
+		<script src="lib/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>	
+		<script src="lib/dist/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="lib/angular.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body ng-app="myApp">
+			<div class="container" ng-controller="ctrl">
+				<table class="table table-bordered">
+			      <thead>
+			        <tr>
+			          <th></th>
+			        </tr>
+			      </thead>
+			      
+			    </table>
+			</div>
+		<script type="text/javascript">
+			var app = angular.module("myApp",[]);
+	    	app.controller("ctrl",function($scope){
+				$scope.list = [];
+				$.ajax({
+					type:"get",
+					url:" http://datainfo.duapp.com/shopdata/getclass.php?callback=",
+					success:function(data){
+						console.log(data)
+					}
+				});
+			})
+		</script>
+	</body>
+</html>
